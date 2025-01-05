@@ -2,7 +2,7 @@
     <button class="toggle-btn" id="toggle-btn">&#9776;</button>
     <nav>
         <ul>
-            {% for item in site.menus.header %}
+            {% for item in site.data.navigation.docs %}
             <li class="menu-item-{{ loop.index }}">
                 <a href="{{ item.url }}" title="{{ item.title }}">{{ item.title }}</a>
             </li>
