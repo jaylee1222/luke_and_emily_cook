@@ -1,0 +1,108 @@
+// Variables for easy customization
+$sidebar-width: 250px;
+$bg-color: #333;
+$hover-color: #ddd;
+$active-color: #4CAF50;
+$text-color: white;
+$btn-color: black;
+$active-text-color: white;
+$main-bg-color: #f4f4f4;
+$main-padding: 20px; // Padding for main content
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100vh; // Full screen height
+  overflow-x: hidden; // Prevent horizontal scroll
+}
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $sidebar-width;
+  height: 100%;
+  background-color: $bg-color;
+  padding-top: 20px;
+  transition: transform 0.3s ease;
+  transform: translateX(-$sidebar-width); // Initially hidden
+  z-index: 1000;
+
+  .toggle-btn {
+    background: none;
+    border: none;
+    color: $btn-color;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: -50px;
+    transition: right 0.3s ease;
+    z-index: 1050; // Ensure button is above the sidebar
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px; // Added margin to push links below the button
+   
+    ul {
+       list-style-type: none;
+   }
+
+    a {
+      padding: 15px 20px;
+      color: $text-color;
+      text-decoration: none;
+      text-align: left;
+      font-size: 18px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $hover-color;
+        color: black;
+      }
+
+      &.active {
+        background-color: $active-color;
+        color: $active-text-color;
+      }
+    }
+  }
+
+  &.active {
+    transform: translateX(0); // Slide the sidebar in
+  }
+}
+
+#main-content {
+  padding: $main-padding;
+  background-color: $main-bg-color;
+  border-radius: 8px; // Optional: adds rounded corners to the content box
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Optional: adds a subtle shadow
+  transition: margin-left 0.3s ease;
+  width: 80%; // Optional: limits the width of the content box (adjustable)
+  max-width: 900px; // Optional: set a max width for large screens
+
+  h1 {
+    margin-top: 20px;
+  }
+
+  p {
+    margin-top: 10px;
+  }
+}
+
+// To expand the main content when the sidebar is active
+#sidebar.active + #main-content {
+  margin-left: $sidebar-width; // Shift content to the right when sidebar is active
+}
+
+// Ensure the content is centered in the page
+body {
+  justify-content: center; // Center content horizontally
+  align-items: center; // Center content vertically
+}

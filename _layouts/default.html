@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}" class="h-full">
-
-{%- include head.html -%}
-
+<head>
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
 <body class='h-full'>
 
   {%- include nav.html -%}
-
-  {{ content }}
-
-  {%- include footer.html -%}
-
+  <div id="main-content" class="main-content">
+      {{ content }}
+  </div>
+`
+<script src="assets/js/script.js"></script>
 </body>
 
 </html>

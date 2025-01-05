@@ -28,6 +28,7 @@ baseurl: "/luke_and_emily_cook" # the subpath of your site, e.g. /blog
 domain: "jaylee1222.github.io"
 destination: "docs"
 url: "https://jaylee1222.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+permalink: ":title/"
 twitter_username: jekyllrb
 github_username:  jekyll
 
@@ -35,6 +36,12 @@ github_username:  jekyll
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-menus
+
+collections:
+  pages:
+    output: true
+    permalink: "/:title"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
